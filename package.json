@@ -1,31 +1,76 @@
 {
-    "name": "phpDoc",
-    "displayName": "phpDoc",
-    "description": "",
+    "name": "phpDocumen",
+    "displayName": "phpDocumen",
+    "description": "phpDocumen",
     "version": "0.0.1",
     "publisher": "manasxx",
     "engines": {
         "vscode": "^1.28.0"
     },
     "categories": [
-        "Other"
+        "Programming Languages"
+    ],
+    "keywords": [
+        "php",
+        "document",
+        "help",
+        "doc"
     ],
     "activationEvents": [
-        "onCommand:extension.phpdoc"
+        "onCommand:phpDocumen.readline",
+        "onCommand:phpDocumen.gotoDocument"
     ],
+    "icon": "resources/php.png",
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.phpdoc",
-                "title": "phpdoc"
+                "command": "phpDocumen.readline",
+                "title": "php Documen : Readline"
             },
             {
-                "command": "phpdoc.detail",
-                "title": "phpdoc Detail",
-                "category": "phpdoc Detail"
+                "command": "phpDocumen.gotoDocument",
+                "title": "php Document"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "php Document language config",
+            "properties": {
+                "phpDocumen.language": {
+                    "type": "string",
+                    "enum": [
+                        "English",
+                        "Brazilian",
+                        "Chinese",
+                        "French",
+                        "German",
+                        "Japanese",
+                        "Romanian",
+                        "Russian",
+                        "Spanish",
+                        "Turkish"
+                    ],
+                    "default": "English",
+                    "description": "document language"
+                }
+            }
+        },
+        "keybindings": [
+            {
+                "command": "phpDocumen.gotoDocument",
+                "key": "ctrl+alt+p",
+                "mac": "cmd+alt+p",
+                "when": "editorTextFocus"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "phpDocumen.gotoDocument",
+                    "group": "navigation@1"
+                }
+            ]
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",

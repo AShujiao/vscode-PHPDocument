@@ -1,65 +1,40 @@
-# vsce-phpDoc README
+# canvas-nest for  VsCode
 
-This is the README for your extension "vsce-phpDoc". After writing up a brief description, we recommend including the following sections.
+一个非常好看的网页粒子背景插件，来自[Canvas-nest.js](https://github.com/hustcc/canvas-nest.js).
 
-## Features
+## 特征
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+![效果](https://user-images.githubusercontent.com/14969576/46869498-a416b780-ce5e-11e8-9e14-e5ce925cbc25.gif)
 
-For example if there is an image subfolder under your extension project workspace:
+## 要求
 
-\!\[feature X\]\(images/feature-x.png\)
+* VS Code（版本1.28.0或更高版本）
+* 需要以管理员身份运行
+* 卸载插件时请先将插件配置`nest.enabled` 设置为 false，否则卸载后效果还会继续保留
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## 扩展设置
 
-## Requirements
+|配置 | 描述
+|-----|------------
+|`nest.enabled`| true:启用插件、false:禁用插件
+|`nest.opacity`| 线条透明度，范围0.1 - 1
+|`nest.count`| 线条数量，范围1 - 100 
+|`nest.color`| 线条颜色
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
-## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## 发行说明
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
+#### ver 0.1.0 (2018/10/12)
+	第一版发布
 -----------------------------------------------------------------------------------------------------------
+### 感谢
+	没有这些开源项目，就不会有这个插件的出现
+* [Canvas-nest.js](https://github.com/hustcc/canvas-nest.js)
+* [vscode-background](https://github.com/shalldie/vscode-background)
 
-## Working with Markdown
+### 相关信息
 
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+* [GitHub](https://github.com/AShujiao/vscode-maxPlus)
 
 **Enjoy!**
