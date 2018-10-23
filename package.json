@@ -1,11 +1,11 @@
 {
     "name": "phpDocumen",
     "displayName": "phpDocumen",
-    "description": "phpDocumen",
+    "description": "在vscode 中查看 php 函数 手册",
     "version": "0.0.1",
     "publisher": "manasxx",
     "engines": {
-        "vscode": "^1.28.0"
+        "vscode": "^1.26.0"
     },
     "categories": [
         "Programming Languages"

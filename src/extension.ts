@@ -15,7 +15,6 @@ export function activate(context: vscode.ExtensionContext) {
             if(!value){
                 return false;
             }
-            vscode.window.showInformationMessage(value);
             phpDetailPanel.createOrShow(value);
         })
     });
