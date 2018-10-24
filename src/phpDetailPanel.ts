@@ -6,7 +6,7 @@ export class phpDetailPanel{
 
 	public static currentPanel: phpDetailPanel | undefined;
 
-	public static readonly viewType = 'phpDetail';
+	public static readonly viewType = 'phpDocument';
 
 	private readonly _panel: vscode.WebviewPanel;
     private  _url: string;
@@ -15,7 +15,7 @@ export class phpDetailPanel{
 
 	public static createOrShow(fun: string){
         const column = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.viewColumn : undefined;
-        let config = vscode.workspace.getConfiguration("phpDocumen"); // 当前用户配置
+        let config = vscode.workspace.getConfiguration("phpDocument"); // 当前用户配置
         let language = languageConf(config.language);
         let funUrl = fun.replace(/_/g,'-');
         let url = `http://php.net/manual/${language}/function.${funUrl}.php`;
@@ -25,7 +25,7 @@ export class phpDetailPanel{
 			return;
 		}
 
-		const panel = vscode.window.createWebviewPanel(phpDetailPanel.viewType,"php help",column || vscode.ViewColumn.One,{
+		const panel = vscode.window.createWebviewPanel(phpDetailPanel.viewType,"phpDocument",column || vscode.ViewColumn.One,{
             enableScripts: true,
             retainContextWhenHidden:true,
             enableCommandUris:true
@@ -87,10 +87,10 @@ export class phpDetailPanel{
             light:vscode.Uri.file(path.join(__filename,  '..', '..', 'resources', 'light', 'PHP.svg')) ,
             dark: vscode.Uri.file(path.join(__filename,  '..', '..', 'resources', 'dark',  'PHP.svg'))
         };
-        return this.getMaxJson();
+        return this.getHtml();
     }
     
-    async  getMaxJson() {
+    async  getHtml() {
         let re = await this._getHtmlForWebview();
         let html = re.toString();
         let css = "<style>.navbar,.navbar-fixed-top,.layout-menu,#breadcrumbs-inner,.page-tools,.footer-content{ display:none;} a{pointer-events: none;} </style></head>";

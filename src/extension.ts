@@ -8,7 +8,7 @@ import { phpDetailPanel} from './phpDetailPanel';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-    let disposable = vscode.commands.registerCommand('phpDocumen.readline', () => {
+    let disposable = vscode.commands.registerCommand('phpDocument.readline', () => {
 
         let option:vscode.InputBoxOptions = new boxOption('example：array');
         vscode.window.showInputBox(option).then(value=>{
@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
         })
     });
 
-    let phpDocument = vscode.commands.registerCommand('phpDocumen.gotoDocument', () => {
+    let phpDocument = vscode.commands.registerCommand('phpDocument.gotoDocument', () => {
         // The code you place here will be executed every time your command is executed
         let editor = vscode.window.activeTextEditor;
         if (!editor) {
@@ -35,16 +35,13 @@ export function activate(context: vscode.ExtensionContext) {
             keyword = editor.document.getText(editor.selection.with());
         }
         if(!keyword){
-            vscode.window.showWarningMessage('未获取到关键字!');
+            vscode.window.showWarningMessage('The name of the function was not obtained!');
             return;
         }
 
         phpDetailPanel.createOrShow(keyword);
     });
 
-    // vscode.commands.registerCommand('phpdoc.detail',(value)=>{
-    //     phpDetailPanel.createOrShow(value,"ow");
-    // })
 
     context.subscriptions.push(disposable);
     context.subscriptions.push(phpDocument);
@@ -69,7 +66,7 @@ export class boxOption  implements vscode.InputBoxOptions {
     constructor(prompt:string){
         this.ignoreFocusOut = true;
         this.password = false;
-        this.placeHolder = "请输入内置php函数";
+        this.placeHolder = "Please enter the name of the PHP function.";
         this.prompt = prompt;
         this.value = "";
     }

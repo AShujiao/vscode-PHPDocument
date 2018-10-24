@@ -1,7 +1,7 @@
 {
-    "name": "phpDocumen",
-    "displayName": "phpDocumen",
-    "description": "在vscode 中查看 php 函数 手册",
+    "name": "phpDocument",
+    "displayName": "phpDocument",
+    "description": "View the php function manual directly in vscode, temporarily only support php built-in functions(在vscode 中查看 php 函数 手册)",
     "version": "0.0.1",
     "publisher": "manasxx",
     "engines": {
@@ -17,26 +17,26 @@
         "doc"
     ],
     "activationEvents": [
-        "onCommand:phpDocumen.readline",
-        "onCommand:phpDocumen.gotoDocument"
+        "onCommand:phpDocument.readline",
+        "onCommand:phpDocument.gotoDocument"
     ],
     "icon": "resources/php.png",
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "phpDocumen.readline",
-                "title": "php Documen : Readline"
+                "command": "phpDocument.readline",
+                "title": "php Document : Readline"
             },
             {
-                "command": "phpDocumen.gotoDocument",
+                "command": "phpDocument.gotoDocument",
                 "title": "php Document"
             }
         ],
         "configuration": {
             "title": "php Document language config",
             "properties": {
-                "phpDocumen.language": {
+                "phpDocument.language": {
                     "type": "string",
                     "enum": [
                         "English",
@@ -57,7 +57,7 @@
         },
         "keybindings": [
             {
-                "command": "phpDocumen.gotoDocument",
+                "command": "phpDocument.gotoDocument",
                 "key": "ctrl+alt+p",
                 "mac": "cmd+alt+p",
                 "when": "editorTextFocus"
@@ -66,12 +66,21 @@
         "menus": {
             "editor/context": [
                 {
-                    "command": "phpDocumen.gotoDocument",
+                    "command": "phpDocument.gotoDocument",
                     "group": "navigation@1"
                 }
             ]
         }
     },
+    "bugs": {
+        "url": "https://github.com/AShujiao/vscode-phpDocument/issues",
+        "email": "a916817706@live.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AShujiao/vscode-phpDocument.git"
+    },
+    "homepage": "https://github.com/AShujiao/vscode-phpDocument/blob/master/README.md",
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
