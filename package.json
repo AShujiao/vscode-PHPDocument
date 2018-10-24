@@ -1,6 +1,6 @@
 {
-    "name": "phpDocument",
-    "displayName": "phpDocument",
+    "name": "PHPDocument",
+    "displayName": "PHPDocument",
     "description": "View the php function manual directly in vscode, temporarily only support php built-in functions(在vscode 中查看 php 函数 手册)",
     "version": "0.0.1",
     "publisher": "manasxx",
@@ -30,7 +30,7 @@
             },
             {
                 "command": "phpDocument.gotoDocument",
-                "title": "php Document"
+                "title": "PHP Document"
             }
         ],
         "configuration": {

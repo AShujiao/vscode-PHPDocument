@@ -1,4 +1,4 @@
-# php Document
+# PHP Document
 
 直接在vscode中查看php函数手册,暂时只支持php内置函数
 
