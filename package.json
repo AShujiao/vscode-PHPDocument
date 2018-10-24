@@ -17,26 +17,26 @@
         "doc"
     ],
     "activationEvents": [
-        "onCommand:phpDocument.readline",
-        "onCommand:phpDocument.gotoDocument"
+        "onCommand:PHPDocument.Readline",
+        "onCommand:PHPDocument.gotoDocument"
     ],
     "icon": "resources/php.png",
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "phpDocument.readline",
+                "command": "PHPDocument.Readline",
                 "title": "php Document : Readline"
             },
             {
-                "command": "phpDocument.gotoDocument",
+                "command": "PHPDocument.gotoDocument",
                 "title": "PHP Document"
             }
         ],
         "configuration": {
-            "title": "php Document language config",
+            "title": "PHP Document language config",
             "properties": {
-                "phpDocument.language": {
+                "PHPDocument.language": {
                     "type": "string",
                     "enum": [
                         "English",
@@ -57,7 +57,7 @@
         },
         "keybindings": [
             {
-                "command": "phpDocument.gotoDocument",
+                "command": "PHPDocument.gotoDocument",
                 "key": "ctrl+alt+p",
                 "mac": "cmd+alt+p",
                 "when": "editorTextFocus"
@@ -66,7 +66,7 @@
         "menus": {
             "editor/context": [
                 {
-                    "command": "phpDocument.gotoDocument",
+                    "command": "PHPDocument.gotoDocument",
                     "group": "navigation@1"
                 }
             ]

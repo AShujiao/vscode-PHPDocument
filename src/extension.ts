@@ -8,7 +8,7 @@ import { phpDetailPanel} from './phpDetailPanel';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-    let disposable = vscode.commands.registerCommand('phpDocument.readline', () => {
+    let disposable = vscode.commands.registerCommand('PHPDocument.Readline', () => {
 
         let option:vscode.InputBoxOptions = new boxOption('example：array');
         vscode.window.showInputBox(option).then(value=>{
@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
         })
     });
 
-    let phpDocument = vscode.commands.registerCommand('phpDocument.gotoDocument', () => {
+    let phpDocument = vscode.commands.registerCommand('PHPDocument.gotoDocument', () => {
         // The code you place here will be executed every time your command is executed
         let editor = vscode.window.activeTextEditor;
         if (!editor) {
