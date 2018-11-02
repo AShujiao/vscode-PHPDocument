@@ -1,7 +1,7 @@
-# Change Log
-All notable changes to the "vsce-phpDoc" extension will be documented in this file.
+#### ver 0.0.1 (2018/10/24)
+	第一版发布
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-- Initial release
+#### ver 0.0.2 (2018/11/02)
+	1、优化代码
+	2、修复右下角回到顶部按钮无法使用的问题
+-----------------------------------------------------------------------------------------------------------

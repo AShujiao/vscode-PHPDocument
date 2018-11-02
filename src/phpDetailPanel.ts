@@ -92,7 +92,7 @@ export class phpDetailPanel{
     async  getHtml() {
         let re = await this._getHtmlForWebview();
         let html = re.toString();
-        let css = "<style>.navbar,.navbar-fixed-top,.layout-menu,#breadcrumbs-inner,.page-tools,.footer-content,.headsup{ display:none;} a{pointer-events: none;} </style></head>";
+        let css = "<style>.navbar,.navbar-fixed-top,.layout-menu,#breadcrumbs-inner,.page-tools,.footer-content,.headsup{display:none;}a{pointer-events: none;}#toTop{pointer-events:auto;} </style></head>";
         html = html.replace(/<\/head>/,css);
         html = html.replace(/\/cached.php/g,'http://php.net/cached.php');
         this._panel.webview.html = html;

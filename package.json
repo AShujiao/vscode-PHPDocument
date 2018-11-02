@@ -2,7 +2,7 @@
     "name": "PHPDocument",
     "displayName": "PHPDocument",
     "description": "View the php function manual directly in vscode, temporarily only support php built-in functions(在vscode 中查看 php 函数 手册)",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "manasxx",
     "engines": {
         "vscode": "^1.26.0"
