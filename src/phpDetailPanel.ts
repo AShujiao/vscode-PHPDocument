@@ -45,7 +45,10 @@ export class phpDetailPanel{
         // Listen for when the panel is disposed
         // This happens when the user closes the panel or when the panel is closed programatically
         this._panel.onDidDispose(() => this.dispose(), null, this._disposables);
-
+        this._panel.iconPath = {
+            light:vscode.Uri.file(path.join(__filename,  '..', '..', 'resources', 'light', 'PHP.svg')) ,
+            dark: vscode.Uri.file(path.join(__filename,  '..', '..', 'resources', 'dark',  'PHP.svg'))
+        };
         // Update the content based on view changes
         this._panel.onDidChangeViewState(e => {
             if (this._panel.visible) {
@@ -83,17 +86,13 @@ export class phpDetailPanel{
         if(fun) this._fun = fun;
         this._panel.title = "php - " + this._fun;
 
-        this._panel.iconPath = {
-            light:vscode.Uri.file(path.join(__filename,  '..', '..', 'resources', 'light', 'PHP.svg')) ,
-            dark: vscode.Uri.file(path.join(__filename,  '..', '..', 'resources', 'dark',  'PHP.svg'))
-        };
         return this.getHtml();
     }
     
     async  getHtml() {
         let re = await this._getHtmlForWebview();
         let html = re.toString();
-        let css = "<style>.navbar,.navbar-fixed-top,.layout-menu,#breadcrumbs-inner,.page-tools,.footer-content{ display:none;} a{pointer-events: none;} </style></head>";
+        let css = "<style>.navbar,.navbar-fixed-top,.layout-menu,#breadcrumbs-inner,.page-tools,.footer-content,.headsup{ display:none;} a{pointer-events: none;} </style></head>";
         html = html.replace(/<\/head>/,css);
         html = html.replace(/\/cached.php/g,'http://php.net/cached.php');
         this._panel.webview.html = html;
