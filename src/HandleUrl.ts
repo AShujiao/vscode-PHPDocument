@@ -19,6 +19,8 @@ const structuresArr:ObjectIndex = {
 //oop关键字 - language.oop5
 const oopArr:ObjectIndex = {
 	"class" : "basic",
+	"$this" : "basic",
+	"new" : "basic",
 	"const" : "constants",
 	"--construct" : "decon",
 	"public" : "visibility",
@@ -37,6 +39,24 @@ const oopArr:ObjectIndex = {
 	"--unset" : "overloading",
 	"final" : "final",
 	"--clone" : "cloning",
+};
+
+//命名空间相关 - language.namespaces
+const namespaceArr:ObjectIndex = {
+	"use" : "importing",
+	"namespace" : "rationale",
+}
+
+//变量类型 - language.types
+const typeArr:ObjectIndex = {
+	"true" : "boolean",
+	"false" : "boolean",
+	"int" : "integer",
+	"null" : "null",
+	"object" : "object",
+	"float" : "float",
+	"double" : "float",
+	"real" : "float",
 };
 
 //全局变量关键字 - reserved.variables
@@ -79,6 +99,18 @@ export default (lan:string,func:string):string => {
 	let isGlobals = globalsArr[func] ? true:false;
 	if(isGlobals){
 		return getUrl(config_language,globalsArr[func],"reserved.variables");
+	}
+
+	//检查是否为命名空间关键字
+	let isNamespace:boolean = namespaceArr[func] ? true:false;
+	if(isNamespace){
+		return getUrl(config_language,namespaceArr[func],"language.namespaces");
+	}
+
+	//检查是否为变量类型关键字
+	let isTypes = typeArr[func] ? true:false;
+	if(isTypes){
+		return getUrl(config_language,typeArr[func],"language.types");
 	}
 
 	//返回默认为函数
