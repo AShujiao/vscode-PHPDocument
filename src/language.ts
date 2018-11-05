@@ -1,10 +1,6 @@
+import { ObjectIndex } from "./ObjectIndex";
 
-interface LanguageIndex{
-	//定义索引key为string类型，索引值为string类型
-	[index:string]:string
-}
-
-let Language:LanguageIndex = {
+let Language:ObjectIndex = {
 	"English" : "en",
 	"Brazilian" : "pt_BR",
 	"Chinese" : "zh",
@@ -17,6 +13,7 @@ let Language:LanguageIndex = {
 	"Turkish" : "tr"
 };
 
+//返回语言类型
 export default (value:any)=>{
 	return Language[value];
 }

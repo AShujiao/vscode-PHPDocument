@@ -1,8 +1,8 @@
 # PHP Document
 
-直接在vscode中查看php函数手册,暂时只支持php内置函数
+直接在vscode中查看php参考手册,部分不常用php关键字可能会查不到
 
-View the php function manual directly in vscode, temporarily only support php built-in functions
+View the php reference manual directly in vscode, some of the commonly used php keywords may not be found
 
 ## Features
 
@@ -44,7 +44,8 @@ View the php function manual directly in vscode, temporarily only support php bu
 	1.鼠标单击函数位置（或者选中）右键 -> phpDocument
 	(Mouse click on the function location (or selected) right -> phpDocument)
 	2.使用命令输入你想查找的函数
-	ctrl+shift+p -> php Document : Readline -> 输入你要查询的函数名称（example:array） -> enter 
+	ctrl+shift+p -> php Document : Readline -> 输入你要查询的函数名称（example:array） -> enter ，
+	如果关键词为php全局变量请带上“$”符号（If the keywords are PHP global variables, please bring "$" symbol.）
 
 ## update
 
@@ -52,8 +53,10 @@ View the php function manual directly in vscode, temporarily only support php bu
 	第一版发布
 
 #### ver 0.0.2 (2018/11/02)
-	1、优化代码
-	2、修复右下角回到顶部按钮无法使用的问题
+	1、修复右下角回到顶部按钮无法使用的问题
+
+#### ver 0.0.9 (2018/11/05)
+	1、支持更多的php关键字，包括（OOP,流程控制，全局变量）
 -----------------------------------------------------------------------------------------------------------
 
 ### 相关信息
