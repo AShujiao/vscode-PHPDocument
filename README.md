@@ -44,7 +44,7 @@ View the php function manual directly in vscode, temporarily only support php bu
 	1.鼠标单击函数位置（或者选中）右键 -> phpDocument
 	(Mouse click on the function location (or selected) right -> phpDocument)
 	2.使用命令输入你想查找的函数
-	ctrl+alt+p -> php Document : Readline -> 输入你要查询的函数名称（example:array） -> enter 
+	ctrl+shift+p -> php Document : Readline -> 输入你要查询的函数名称（example:array） -> enter 
 
 ## update
 
