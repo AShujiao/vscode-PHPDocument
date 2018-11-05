@@ -2,7 +2,7 @@
 
 直接在vscode中查看php参考手册,部分不常用php关键字可能会查不到
 
-View the php reference manual directly in vscode, some of the commonly used php keywords may not be found
+View the php reference manual directly in vscode
 
 ## Features
 
