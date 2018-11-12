@@ -116,7 +116,7 @@ private constructor(panel: vscode.WebviewPanel,url:string,fun:string){
         let css = "<style>.navbar,.navbar-fixed-top,.layout-menu,#breadcrumbs-inner,.page-tools,.footer-content,.headsup{display:none;}a{pointer-events: none;}#toTop{pointer-events:auto;} </style></head>";
         html = html.replace(/<\/head>/,css);
         //修改请求地址
-        html = html.replace(/\/cached.php/g,'http://php.net/cached.php');
+        html = html.replace(/\/cached.php/g,'https://php.net/cached.php');
         //更新html
         this._panel.webview.html = html;
 	}

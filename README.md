@@ -1,6 +1,6 @@
 # PHP Document
 
-直接在vscode中查看php参考手册,部分不常用php关键字可能会查不到
+直接在vscode中查看php参考手册
 
 View the php reference manual directly in vscode
 
@@ -60,8 +60,12 @@ View the php reference manual directly in vscode
 
 #### ver 0.1.0 (2018/11/05)
 	1、添加支持更多的php关键字，包括（命名空间、值类型）
+
 #### ver 0.1.1 (2018/11/09)
 	1、修复生成的文件名大小写问题导致在linux下无法使用
+
+#### ver 1.0.0 (2018/11/12)
+	1、完善部分关键字
 -----------------------------------------------------------------------------------------------------------
 
 ### 相关信息

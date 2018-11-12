@@ -15,7 +15,8 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.window.showInputBox(option).then(value=>{
             //未输入值返回false
             if(!value){
-                return false;
+                vscode.window.showWarningMessage('Please enter the PHP keyword!');
+                return;
             }
             //创建面板展示
             PHPDetailPanel.createOrShow(value);
@@ -48,7 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
         PHPDetailPanel.createOrShow(keyword);
     });
 
-    //添加命令
+    //绑定命令
     context.subscriptions.push(disposable);
     context.subscriptions.push(phpDocument);
 }
@@ -72,7 +73,7 @@ export class boxOption  implements vscode.InputBoxOptions {
     constructor(prompt:string){
         this.ignoreFocusOut = true;
         this.password = false;
-        this.placeHolder = "Please enter the name of the PHP function.";
+        this.placeHolder = "Please enter the PHP keyword.";
         this.prompt = prompt;
         this.value = "";
     }

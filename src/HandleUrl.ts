@@ -47,6 +47,11 @@ const namespaceArr:ObjectIndex = {
 	"namespace" : "rationale",
 }
 
+//function相关 - functions
+const functionsArr:ObjectIndex = {
+	"function" : "user-defined"
+}
+
 //变量类型 - language.types
 const typeArr:ObjectIndex = {
 	"true" : "boolean",
@@ -90,6 +95,12 @@ export default (lan:string,func:string):string => {
 	}
 
 	//检查是否为oop关键字
+	let isFunctions:boolean = functionsArr[func] ? true:false;
+	if(isFunctions){
+		return getUrl(config_language,functionsArr[func],"functions");
+	}
+
+	//检查是否为oop关键字
 	let isOOP:boolean = oopArr[func] ? true:false;
 	if(isOOP){
 		return getUrl(config_language,oopArr[func],"language.oop5");
@@ -113,7 +124,6 @@ export default (lan:string,func:string):string => {
 		return getUrl(config_language,typeArr[func],"language.types");
 	}
 
-	//返回默认为函数
 	return getUrl(config_language,func,func_type);
 	
 }
