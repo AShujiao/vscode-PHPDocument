@@ -1,6 +1,6 @@
 # PHP Document
 
-直接在vscode中查看php参考手册
+直接在vscode中查看php参考手册，文档信息来自[PHP官方文档](http://php.net/docs.php)
 
 View the php reference manual directly in vscode
 
