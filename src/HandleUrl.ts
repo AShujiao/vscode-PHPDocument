@@ -94,7 +94,7 @@ export default (lan:string,func:string):string => {
 		return getUrl(config_language,structuresArr[func],"control-structures");
 	}
 
-	//检查是否为oop关键字
+	//检查是否为functions关键字
 	let isFunctions:boolean = functionsArr[func] ? true:false;
 	if(isFunctions){
 		return getUrl(config_language,functionsArr[func],"functions");
