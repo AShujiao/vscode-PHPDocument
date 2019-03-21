@@ -2,7 +2,7 @@
     "name": "PHPDocument",
     "displayName": "PHPDocument",
     "description": "View the php function manual directly in vscode (在vscode 中查看 php 参考手册)",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "manasxx",
     "engines": {
         "vscode": "^1.26.0"
@@ -82,7 +82,7 @@
     },
     "homepage": "https://github.com/AShujiao/vscode-phpDocument/blob/master/README.md",
     "scripts": {
-        "vscode:prepublish": "npm run compile",
+        "vscode:prepublish": "",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",

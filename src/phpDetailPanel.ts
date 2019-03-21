@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
-import * as request from 'request';
+import * as http    from 'http';
 import handleUrl from './HandleUrl';
 export class PHPDetailPanel{
 
@@ -110,8 +110,11 @@ private constructor(panel: vscode.WebviewPanel,url:string,fun:string){
     //异步获取hmtl更新到面板
     async  getHtml() {
         //获取html
-        let re = await this._getHtmlForWebview();
-        let html = re.toString();
+        let re = this._getHtmlForWebview(this._url);
+
+        let html:string = await re.then(data=>{
+            return data.toString();
+        })
         //添加样式处理
         let css = "<style>.navbar,.navbar-fixed-top,.layout-menu,#breadcrumbs-inner,.page-tools,.footer-content,.headsup{display:none;}a{pointer-events: none;}#toTop{pointer-events:auto;} </style></head>";
         html = html.replace(/<\/head>/,css);
@@ -119,18 +122,23 @@ private constructor(panel: vscode.WebviewPanel,url:string,fun:string){
         html = html.replace(/\/cached.php/g,'https://php.net/cached.php');
         //更新html
         this._panel.webview.html = html;
-	}
+    }
     
     //请求数据
-	private _getHtmlForWebview (){
-
-        let url = this._url;
-
-        return new Promise(function (resolve, reject) {
-            request(url, function (err, res) {
-                if (err) return vscode.window.showInformationMessage(err);
-                resolve(res.body.toString());
-            })
-        })
+    private _getHtmlForWebview( url: string ) {
+        var pm = new Promise( function ( resolve, reject ) {
+            http.get(url, function ( res ) {
+                var html = '';
+                res.on( 'data', function ( d ) {
+                    html += d.toString()
+                } );
+                res.on( 'end', function () {
+                    resolve( html );
+                } );
+            } ).on( 'error', function ( e ) {
+                reject( e )
+            } );
+        } );
+        return pm;
     }
 }
