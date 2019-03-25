@@ -2,7 +2,7 @@
     "name": "PHPDocument",
     "displayName": "PHPDocument",
     "description": "View the php function manual directly in vscode (在vscode 中查看 php 参考手册)",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "publisher": "manasxx",
     "engines": {
         "vscode": "^1.26.0"
@@ -96,6 +96,7 @@
     },
     "dependencies": {
         "@types/request": "^2.48.1",
-        "request": "^2.88.0"
+        "request": "^2.88.0",
+        "url": "^0.11.0"
     }
 }

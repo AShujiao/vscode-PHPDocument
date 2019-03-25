@@ -131,6 +131,6 @@ export default (lan:string,func:string):string => {
 //获取php文档url
 function getUrl(language:string,func:string,func_type:string):string{
 
-	return `http://php.net/manual/${language}/${func_type}.${func}.php`;
+	return `https://php.net/manual/${language}/${func_type}.${func}.php`;
 
 }

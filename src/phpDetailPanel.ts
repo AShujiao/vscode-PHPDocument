@@ -1,7 +1,8 @@
 import * as vscode from 'vscode';
-import * as path from 'path';
-import * as http    from 'http';
-import handleUrl from './HandleUrl';
+import * as path   from 'path';
+import * as http   from 'https';
+import * as URL    from 'url';
+import handleUrl   from './HandleUrl';
 export class PHPDetailPanel{
 
 	public static currentPanel: PHPDetailPanel | undefined;
@@ -30,9 +31,9 @@ export class PHPDetailPanel{
         }
         //创建一个活动窗口
 		const panel = vscode.window.createWebviewPanel(PHPDetailPanel.viewType,"PHPDocument",column || vscode.ViewColumn.One,{
-            enableScripts: true,
+            enableScripts: false,
             retainContextWhenHidden:true,
-            enableCommandUris:true
+            enableCommandUris:false
 		});
 
 		PHPDetailPanel.currentPanel = new PHPDetailPanel(panel,url,fun);
@@ -59,12 +60,12 @@ private constructor(panel: vscode.WebviewPanel,url:string,fun:string){
             light:vscode.Uri.file(path.join(__filename,  '..', '..', 'resources', 'light', 'PHP.svg')) ,
             dark: vscode.Uri.file(path.join(__filename,  '..', '..', 'resources', 'dark',  'PHP.svg'))
         };
-        // 更新内容事件
-        this._panel.onDidChangeViewState(e => {
-            if (this._panel.visible) {
-                this._update()
-            }
-        }, null, this._disposables);
+        // 更新内容事件，暂时用不到
+        // this._panel.onDidChangeViewState(e => {
+        //     if (this._panel.visible) {
+        //         this._update()
+        //     }
+        // }, null, this._disposables);
 
         // 处理面板中的消息，暂时用不到
         /*this._panel.webview.onDidReceiveMessage(message => {
@@ -126,8 +127,22 @@ private constructor(panel: vscode.WebviewPanel,url:string,fun:string){
     
     //请求数据
     private _getHtmlForWebview( url: string ) {
-        var pm = new Promise( function ( resolve, reject ) {
-            http.get(url, function ( res ) {
+        let urlData = URL.parse(url);
+        let option = {
+            'hostname': 'www.php.net',
+            'path'    : urlData.path,
+            headers: {
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+                'Accept-Encoding': 'utf-8',  //这里设置返回的编码方式 设置其他的会是乱码
+                'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+                'cache-control'  : 'max-age=0',
+                'user-agent': 'ozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36',
+                'Cookie': 'LAST_LANG=zh; COUNTRY=NA%2C60.174.83.97; LAST_NEWS=1553501040',
+
+            }
+        };
+        let pm = new Promise( function ( resolve, reject ) {
+            http.get(option, function ( res ) {
                 var html = '';
                 res.on( 'data', function ( d ) {
                     html += d.toString()
