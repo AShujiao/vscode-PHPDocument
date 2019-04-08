@@ -2,7 +2,7 @@
     "name": "PHPDocument",
     "displayName": "PHPDocument",
     "description": "View the php function manual directly in vscode (在vscode 中查看 php 参考手册)",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "publisher": "manasxx",
     "engines": {
         "vscode": "^1.26.0"
@@ -67,7 +67,8 @@
             "editor/context": [
                 {
                     "command": "PHPDocument.gotoDocument",
-                    "group": "navigation@1"
+                    "group": "navigation@1",
+                    "when": "resourceLangId == php"
                 }
             ]
         }
