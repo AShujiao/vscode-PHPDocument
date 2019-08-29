@@ -3,48 +3,48 @@ import { ObjectIndex } from "./ObjectIndex";
 
 //php流程控制关键字 - control-structures
 const structuresArr:ObjectIndex = {
-	"if" : "if",
-	"else" : "else",
-	"elseif" : "elseif",
-	"while" : "while",
-	"do" : "do.while",
-	"for" : "for",
+	"if"      : "if",
+	"else"    : "else",
+	"elseif"  : "elseif",
+	"while"   : "while",
+	"do"      : "do.while",
+	"for"     : "for",
 	"foreach" : "foreach",
-	"break" : "break",
-	"continue" : "continue",
-	"switch" : "switch",
+	"break"   : "break",
+	"continue": "continue",
+	"switch"  : "switch",
 	"declare" : "declare",
 };
 
 //oop关键字 - language.oop5
 const oopArr:ObjectIndex = {
-	"class" : "basic",
-	"$this" : "basic",
-	"new" : "basic",
-	"const" : "constants",
-	"--construct" : "decon",
-	"public" : "visibility",
-	"protected" : "visibility",
-	"private" : "visibility",
-	"extends" : "inheritance",
-	"::" : "paamayim-nekudotayim",
-	"static" : "static",
-	"abstract" : "abstract",
+	"class"      : "basic",
+	"$this"      : "basic",
+	"new"        : "basic",
+	"const"      : "constants",
+	"--construct": "decon",
+	"public"     : "visibility",
+	"protected"  : "visibility",
+	"private"    : "visibility",
+	"extends"    : "inheritance",
+	"::"         : "paamayim-nekudotayim",
+	"static"     : "static",
+	"abstract"   : "abstract",
 	"interfaces" : "interfaces",
-	"trait" : "trait",
-	"anonymous" : "anonymous",
-	"--set" : "overloading",
-	"--get" : "overloading",
-	"--isset" : "overloading",
-	"--unset" : "overloading",
-	"final" : "final",
-	"--clone" : "cloning",
+	"trait"      : "trait",
+	"anonymous"  : "anonymous",
+	"--set"      : "overloading",
+	"--get"      : "overloading",
+	"--isset"    : "overloading",
+	"--unset"    : "overloading",
+	"final"      : "final",
+	"--clone"    : "cloning",
 };
 
 //命名空间相关 - language.namespaces
 const namespaceArr:ObjectIndex = {
-	"use" : "importing",
-	"namespace" : "rationale",
+	"use"      : "importing",
+	"namespace": "rationale",
 }
 
 //function相关 - functions
@@ -54,32 +54,32 @@ const functionsArr:ObjectIndex = {
 
 //变量类型 - language.types
 const typeArr:ObjectIndex = {
-	"true" : "boolean",
+	"true"  : "boolean",
 	"false" : "boolean",
-	"int" : "integer",
-	"null" : "null",
-	"object" : "object",
+	"int"   : "integer",
+	"null"  : "null",
+	"object": "object",
 	"float" : "float",
-	"double" : "float",
-	"real" : "float",
+	"double": "float",
+	"real"  : "float",
 };
 
 //全局变量关键字 - reserved.variables
 const globalsArr:ObjectIndex = {
-	"$GLOBALS" : "globals",
-	"$-SERVER" : "server",
-	"$-GET" : "get",
-	"$-POST" : "post",
-	"$-FILES" : "files",
-	"$-REQUEST" : "request",
-	"$-SESSION" : "session",
-	"$-ENV" : "environment",
-	"$-COOKIE" : "cookies",
-	"$php_errormsg" : "phperrormsg",
-	"$HTTP-RAW-POST-DATA" : "httprawpostdata",
-	"$http-response-header" : "httpresponseheader",
-	"$argc" : "argc",
-	"$argv" : "argv",
+	"$GLOBALS"             : "globals",
+	"$-SERVER"             : "server",
+	"$-GET"                : "get",
+	"$-POST"               : "post",
+	"$-FILES"              : "files",
+	"$-REQUEST"            : "request",
+	"$-SESSION"            : "session",
+	"$-ENV"                : "environment",
+	"$-COOKIE"             : "cookies",
+	"$php_errormsg"        : "phperrormsg",
+	"$HTTP-RAW-POST-DATA"  : "httprawpostdata",
+	"$http-response-header": "httpresponseheader",
+	"$argc"                : "argc",
+	"$argv"                : "argv",
 };
 
 export default (lan:string,func:string):string => {
