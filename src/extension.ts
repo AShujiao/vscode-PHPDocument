@@ -2,11 +2,21 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import { PHPDetailPanel} from './PHPDetailPanel';
+import { phpDetailPanel} from './phpDetailPanel';
+import vsHelp from './vsHelp';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+    // 首次打开-提示语
+	let openVersion:string|undefined           = context.globalState.get('ext_version');
+	let ex:vscode.Extension<any>|undefined = vscode.extensions.getExtension('manasxx.phpdocument');
+	let version:string           = ex ? ex.packageJSON['version'] : '';
+	let title:string = ex ?  ex.packageJSON['one_title'] : '';
+	if(openVersion != version && title != ""){
+		context.globalState.update('ext_version',version);
+        vsHelp.showInfoWxChat('🐶🐷🐔🦊加入开发者微信群聊🐯🐮🐹🐽❓');
+	}
 
     //绑定输入php关键字查询命令
     let disposable = vscode.commands.registerCommand('PHPDocument.Readline', () => {
@@ -19,7 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
                 return;
             }
             //创建面板展示
-            PHPDetailPanel.createOrShow(value);
+            phpDetailPanel.createOrShow(value);
         })
     });
     //右键查找php方法命令
@@ -46,7 +56,7 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
         //创建面板
-        PHPDetailPanel.createOrShow(keyword);
+        phpDetailPanel.createOrShow(keyword);
     });
 
     //绑定命令

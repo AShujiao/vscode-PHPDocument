@@ -1,8 +1,8 @@
 {
-    "name": "PHPDocument",
+    "name": "phpdocument",
     "displayName": "PHPDocument",
     "description": "View the php function manual directly in vscode (在vscode 中查看 php 参考手册)",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "publisher": "manasxx",
     "engines": {
         "vscode": "^1.26.0"
@@ -16,10 +16,9 @@
         "help",
         "doc"
     ],
-    "activationEvents": [
-        "onCommand:PHPDocument.Readline",
-        "onCommand:PHPDocument.gotoDocument"
-    ],
+    "one_title": true,
+    "activationEvents": [],
+    
     "icon": "resources/php.png",
     "main": "./out/extension",
     "contributes": {
