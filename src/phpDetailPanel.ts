@@ -113,7 +113,7 @@ private constructor(panel: vscode.WebviewPanel,url:string,fun:string){
         //获取html
         let re = this._getHtmlForWebview(this._url);
 
-        let html: string = await re.then((data: unknown) => {
+        let html: string = await re.then((data) => {
             return (data as Buffer).toString();
         });
         //添加样式处理
