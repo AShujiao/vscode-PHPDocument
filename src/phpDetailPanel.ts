@@ -3,9 +3,9 @@ import * as path   from 'path';
 import * as http   from 'https';
 import * as URL    from 'url';
 import handleUrl   from './HandleUrl';
-export class PHPDetailPanel{
+export class phpDetailPanel{
 
-	public static currentPanel: PHPDetailPanel | undefined;
+	public static currentPanel: phpDetailPanel | undefined;
 
 	public static readonly viewType = 'PHPDocument';
 
@@ -24,19 +24,19 @@ export class PHPDetailPanel{
         //获取url
         let url:string = handleUrl(config.language,funUrl);
         //如果已存在活动窗口则更新
-		if(PHPDetailPanel.currentPanel){
-			PHPDetailPanel.currentPanel._panel.reveal(column);
-			PHPDetailPanel.currentPanel._update(url,fun);
+		if(phpDetailPanel.currentPanel){
+			phpDetailPanel.currentPanel._panel.reveal(column);
+			phpDetailPanel.currentPanel._update(url,fun);
 			return;
         }
         //创建一个活动窗口
-		const panel = vscode.window.createWebviewPanel(PHPDetailPanel.viewType,"PHPDocument",column || vscode.ViewColumn.One,{
+		const panel = vscode.window.createWebviewPanel(phpDetailPanel.viewType,"PHPDocument",column || vscode.ViewColumn.One,{
             enableScripts: false,
             retainContextWhenHidden:true,
             enableCommandUris:false
 		});
 
-		PHPDetailPanel.currentPanel = new PHPDetailPanel(panel,url,fun);
+		phpDetailPanel.currentPanel = new phpDetailPanel(panel,url,fun);
 	}
 
 /**
@@ -79,7 +79,7 @@ private constructor(panel: vscode.WebviewPanel,url:string,fun:string){
     
     //关闭面板，释放资源
 	public dispose() {
-        PHPDetailPanel.currentPanel = undefined;
+        phpDetailPanel.currentPanel = undefined;
         // Clean up our resources
         this._panel.dispose();
 
@@ -109,18 +109,18 @@ private constructor(panel: vscode.WebviewPanel,url:string,fun:string){
     }
     
     //异步获取hmtl更新到面板
-    async  getHtml() {
+    async getHtml() {
         //获取html
         let re = this._getHtmlForWebview(this._url);
 
-        let html:string = await re.then(data=>{
-            return data.toString();
-        })
+        let html: string = await re.then((data) => {
+            return (data as Buffer).toString();
+        });
         //添加样式处理
         let css = "<style>.navbar,.navbar-fixed-top,.layout-menu,#breadcrumbs-inner,.page-tools,.footer-content,.headsup{display:none;}a{pointer-events: none;}#toTop{pointer-events:auto;} </style></head>";
-        html = html.replace(/<\/head>/,css);
+        html = html.replace(/<\/head>/, css);
         //修改请求地址
-        html = html.replace(/\/cached.php/g,'https://php.net/cached.php');
+        html = html.replace(/\/cached.php/g, 'https://php.net/cached.php');
         //更新html
         this._panel.webview.html = html;
     }

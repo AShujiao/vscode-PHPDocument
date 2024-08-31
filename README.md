@@ -76,7 +76,20 @@ View the php reference manual directly in vscode
 
 #### ver 1.0.3 (2019/04/08)
 	1、更改右键菜单只在php文件下显示
+
+#### ver 1.0.4 (2023/03/07)
+	1、完善数据
+
+#### ver 1.0.5 (2023/12/20)
+	1、修改图标
+	2、增加首次提示
+	3、优化打包
 -----------------------------------------------------------------------------------------------------------
+
+**赞助**
+> 如果这个插件能够帮助到您，不介意的话，请作者喝一杯咖啡吧:) 
+ 
+[<img alt="lauset" src="https://zuhaowan-video.oss-cn-beijing.aliyuncs.com/1587571200/177327269-5cd91cdc-ffeb-4e1d-9193-abe5d2bb6b95.jpg" width="300">](https://github.com/lauset)
 
 ### 相关信息
 
